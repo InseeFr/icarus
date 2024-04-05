@@ -246,3 +246,58 @@ test_that("Test margin stats", {
   # print(testStats5)
   
 })
+
+
+
+
+test_that("Compare sas and icarus tolerance definition", {
+  data("data_tolDefinition")
+  #Compare calibrated weights with the same method and tolerance threshold
+  #except that the tolerence definition is different. 
+  
+  #results_from_sas contains :
+  #- a column id
+  #- four columns w_cale_calmar_n that corresponds to the calibrated weights obtained from
+  #SAS using Calmar on data, using margins from the matrix margins, a raking method and
+  #four different calibration tolerance (0.95, 0.04, 0.01)
+  #Definition from Calmar (SAS) computed with Icarus
+  wCales2_sas <- calibration(data=data, 
+                             marginMatrix=as.matrix(margins), 
+                             colWeights="w_HT",
+                             method="raking",
+                             description=FALSE, 
+                             tolDefinition = "sas",
+                             calibTolerance = 0.5)
+  #Definition from Icarus by default
+  wCales2_def <- calibration(data=data, 
+                             marginMatrix=as.matrix(margins), 
+                             colWeights="w_HT",
+                             method="raking",
+                             description=FALSE, 
+                             tolDefinition = "default",
+                             calibTolerance = 0.5)
+  
+  #Expect the same weights computed in SAS with Calmar and 
+  #from Icarus with tolDefinition = "sas" and calibTolerance = 0.5
+  expect_lt(max(abs(results_from_sas$w_cale_calmar4 - wCales2_sas)), 1e-8)
+  
+  #Expect different weights computed in SAS with Calmar and 
+  #from Icarus with tolDefinition = "sas" and calibTolerance = 0.5
+  expect_gt(max(abs(results_from_sas$w_cale_calmar4 - wCales2_def)), 1e-8)
+  
+  
+  #Check for differents threshold that calibrated weights are the same using
+  #Calmar or Icarus (with tolDefiniton = "sas")
+  
+  res_compar_sas <- lapply(X = c(0.95,0.04,0.01), 
+                           FUN = function(seuil){calibration(data=data, 
+                                                             marginMatrix=as.matrix(margins), 
+                                                             colWeights="w_HT",
+                                                             method="raking",
+                                                             description=FALSE, 
+                                                             tolDefinition = "sas",
+                                                             calibTolerance = seuil)})
+  expect_lt(max(abs(results_from_sas$w_cale_calmar1 - res_compar_sas[[1]])), 1e-8)
+  expect_lt(max(abs(results_from_sas$w_cale_calmar2 - res_compar_sas[[2]])), 1e-8)
+  expect_lt(max(abs(results_from_sas$w_cale_calmar3 - res_compar_sas[[3]])), 1e-8)
+})

@@ -111,3 +111,38 @@ NULL
 #' with bounds LO=0.4, UP=2.2)
 #' @author Antoine Rebecq
 NULL
+
+
+
+#' @name data
+#' @title A small example sample to compare tolerance definition between Icarus and Calmar2 (SAS)
+#' @description This table features a samples of 100000 units. 
+#' This table contains : 
+#' \itemize{\item 25 variables named \code{varn} where n denotes the number of the variables.
+#' \item \code{w_HT} a variable corresponding to the initial weight (associated to the Horvitz-Thompson estimator).
+#' \item \code{w_cale_icarus} a variable corresponding to calibrated weight computed with icarus.}
+#' 
+#' @docType data
+#' @usage data
+#' @author Khaled Larbi
+NULL
+
+#' @name margins
+#' @title A small example sample to compare tolerance definition between Icarus and Calmar2 (SAS). 
+#' @description This table contains all margins associated to the 25 variables from \code{data}
+#' @docType data
+#' @format \itemize{\item \code{name} : the name of the variables
+#' \item \code{int} : 0 because all variables are quantitatives in our example
+#' \item marges : the margin associated to the variable}
+#' @usage margins
+#' @author Khaled Larbi
+NULL
+
+
+#' @name results_from_sas
+#' @title A small example sample to compare tolerance definition between Icarus and Calmar2 (SAS). 
+#' @description This table contains calibrated weights computed using SAS (Calmar) for different calibration tolerances.
+#' @docType data
+#' @usage margins
+#' @author Khaled Larbi
+NULL

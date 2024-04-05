@@ -27,7 +27,8 @@ calibration(
   forceBisection = FALSE,
   colCalibratedWeights,
   exportDistributionImage = NULL,
-  exportDistributionTable = NULL
+  exportDistributionTable = NULL,
+  tolDefinition = "default"
 )
 }
 \arguments{
@@ -101,12 +102,21 @@ description is TRUE is exported. Requires package "ggplot2"}
 
 \item{exportDistributionTable}{File name to which the distribution table of before/after
 weights shown when description is TRUE is exported. Requires package "xtable"}
+
+\item{tolDefinition}{The stopping criterion used while optimizing. Can be "default" or "sas". 
+See @Details for more informations.}
 }
 \value{
-column containing the final calibrated weights
+Column containing the final calibrated weights
 }
 \description{
 Performs calibration on margins with several methods and customizable parameters
+}
+\details{
+Choice of stopping criterion : \itemize{\item When "sas" is used, the optimization algorithm stops when ratios between calibrated and initial weights
+don't change (according to \code{calibTolerance}) over two consecutive iterations. This criterion is consistent with the definition given in Calmar.
+\item When "default" is used,  the optimization algorithm stops when relative differences between calibrated estimations 
+and margins are less that \code{calibTolerance}. Note that this criterion cannot be used if some margins are equal to zero.}
 }
 \examples{
 N <- 300 ## population total
