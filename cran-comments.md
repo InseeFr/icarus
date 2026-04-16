@@ -1,18 +1,23 @@
 ## Test environments
-* Ubuntu 20.04, R 4.3.0
-* win-builder (devel and release)
+* Linux Ubuntu: R-oldrelease, R-release and R-devel
+* Windows: R-oldrelease, R-release and R-devel
+* MacOS: R-release
 
 ## R CMD check results
 There were no ERRORs or WARNINGs. 
 
 There was 1 NOTE:
 
-* Possibly mis-spelled words in DESCRIPTION:
-  Reweights (2:23)
-  SAS (3:186)
-  logit (3:300)
+```
+* checking CRAN incoming feasibility ... [10s] NOTE
+Maintainer: 'Khaled Larbi <khaled.larbi@insee.fr>'
 
-  These words aren't mis-spelled and text in DESCRIPTION didn't change since last submission.
+New maintainer:
+  Khaled Larbi <khaled.larbi@insee.fr>
+Old maintainer(s):
+  Antoine Rebecq <antoine.rebecq@m4x.org>
+```
+
 
 ## Downstream dependencies
 

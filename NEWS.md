@@ -1,3 +1,7 @@
+# icarus 0.3.3
+
+* New maintainer
+
 # icarus 0.3.2
 
 ## Bug fixes

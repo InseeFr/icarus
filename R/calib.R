@@ -155,8 +155,8 @@ inverseDistanceLogit <- function(x, bounds) {
 }
 
 # TODO : hyperbolic sine
-# TODO : maybe truncated method ?
 
+# truncated method
 inverseDistanceTruncated <- function(x, bounds) {
   
   if(length(bounds) != 2) {

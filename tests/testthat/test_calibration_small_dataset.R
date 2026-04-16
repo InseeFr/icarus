@@ -111,7 +111,7 @@ test_that("Penalized calibration checks out", {
 
 
 test_that("Calibration on minimum bounds checks out", {
-
+  skip_if_not_installed("Rglpk")
   mar1 <- c("category",3,80,90,60)
   mar2 <- c("sex",2,140,90,0)
   mar3 <- c("department",2,100,130,0)

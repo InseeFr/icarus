@@ -5,5 +5,4 @@
 ..Rcheck/
 docs
 revdep/
-.github/
 *.Rcheck/
