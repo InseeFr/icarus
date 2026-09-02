@@ -10,12 +10,12 @@ There was 1 NOTE:
 
 ```
 * checking CRAN incoming feasibility ... [10s] NOTE
-Maintainer: 'Khaled Larbi <khaled.larbi@insee.fr>'
+Maintainer: 'Jean Rubin <jean.rubin@insee.fr>'
 
 New maintainer:
-  Khaled Larbi <khaled.larbi@insee.fr>
+  Jean Rubin <jean.rubin@insee.fr>
 Old maintainer(s):
-  Antoine Rebecq <antoine.rebecq@m4x.org>
+  Khaled Larbi <khaled.larbi@insee.fr>
 ```
 
 
