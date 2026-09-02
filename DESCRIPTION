@@ -11,7 +11,7 @@ Authors@R: c(person("Antoine Rebecq", role=c("aut"), email = "antoine.rebecq@m4x
   person("Jean", "Rubun", role =  "cre", email = "jean.rubin@insee.fr"),
   person("Khaled", "Larbi", role =  "aut", email = "khaled.larbi@insee.fr"),
   person("Institut national de la statistique et des études économiques", role = "cph"))
-Maintainer: Khaled Larbi <khaled.larbi@insee.fr>
+Maintainer: Jean Rubin <jean.rubin@insee.fr>
 Depends:
     R (>= 3.1.1)
 License: GPL-3
