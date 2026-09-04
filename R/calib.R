@@ -24,11 +24,11 @@ calib <- function(Xs, d, total, q=NULL, method=NULL, bounds = NULL,
             params <- bounds
             updateParameters <- identity
           },
-#            truncated={
-#              inverseDistance <- inverseDistanceTruncated
-#              params <- bounds
-#              updateParameters <- identity
-#            },
+          truncated={
+            inverseDistance <- inverseDistanceTruncated
+            params <- bounds
+            updateParameters <- identity
+          },
 #           curlingHat={
 #             inverseDistance <- distanceCurlingHat
 #             # TODO : check params in list are correctly entered
@@ -155,5 +155,20 @@ inverseDistanceLogit <- function(x, bounds) {
 }
 
 # TODO : hyperbolic sine
-# TODO : maybe truncated method ?
 
+# truncated method
+inverseDistanceTruncated <- function(x, bounds) {
+  
+  if(length(bounds) != 2) {
+    stop("Must enter LO and UP bounds in a vector.
+          Example : bounds=c(0.5,1.5) for LO = 0.5 and UP=1.5")
+  }
+  
+  L = bounds[1]
+  U = bounds[2]
+  som = 1+x
+  distance=pmax(L,som)+pmin(U,som)-som
+  fprim=as.numeric((distance>L)*(distance<U))
+  return(list(distance,fprim))
+  
+}
